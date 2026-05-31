@@ -1,0 +1,9 @@
+datasets
+huggingface_hub
+pandas
+numpy
+tqdm
+jsonlines
+scikit-learn
+matplotlib
+pytest

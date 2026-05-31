@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+.env
+
+# Large datasets
+data/raw/
+data/interim/
+data/external/
+data/processed/
+
+# Outputs
+outputs/
+runs/
+models/checkpoints/
+models/trained/
+
+# Slurm / logs
+*.out
+*.err
+*.log
+
+# OS/editor
+.DS_Store
+.vscode/

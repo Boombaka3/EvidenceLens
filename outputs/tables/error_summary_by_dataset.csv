@@ -1,0 +1,4 @@
+source_dataset,total,high_risk_count,error_type_counts
+PubMedQA,67,1,false_certainty:8; overgeneralization:8; missing_limitation:8
+QASPER,66,0,missing_evidence:5; false_certainty:3; condition_dropping:3
+SciFact,67,2,overgeneralization:11; missing_evidence:7; condition_dropping:6

@@ -1,21 +1,23 @@
 # Python
 __pycache__/
 *.pyc
-.ipynb_checkpoints/
+*.pyo
+*.egg-info/
 
 # Environments
 .venv/
 venv/
 .env
+.conda/
 
-# Large datasets
+# Large datasets — raw and external only
 data/raw/
-data/interim/
 data/external/
-data/processed/
 
-# Outputs
-outputs/
+# Output caches (predictions and figures are tracked)
+outputs/cache/
+
+# Training runs and checkpoints
 runs/
 models/checkpoints/
 models/trained/
@@ -28,3 +30,4 @@ models/trained/
 # OS/editor
 .DS_Store
 .vscode/
+.ipynb_checkpoints/

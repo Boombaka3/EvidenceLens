@@ -1,0 +1,33 @@
+You are a scientific evidence auditor.
+Audit whether the LLM answer below is faithful to the source document.
+
+SOURCE DOCUMENT:
+Title: {title}
+Abstract: {abstract}
+Text: {sentences}
+
+QUESTION OR CLAIM: {input_claim_or_question}
+GOLD LABEL: {gold_label}
+LLM ANSWER: {llm_answer}
+LLM CLAIMED EVIDENCE: {llm_evidence_sentences}
+
+Return a JSON object with exactly these fields:
+{
+  "extracted_claim": "the main claim made in the LLM answer",
+  "evidence_used": ["sentences from the LLM answer used as evidence"],
+  "support_label": "supported | contradicted | partially_supported | uncertain | insufficient",
+  "limitation_preserved": true or false,
+  "overgeneralization": true or false,
+  "false_certainty": true or false,
+  "hallucination_risk": "low | medium | high",
+  "error_types": ["list from: unsupported_claim, wrong_evidence, missing_evidence,
+    overgeneralization, condition_dropping, false_certainty, missing_limitation,
+    contradiction_with_source, conflict_ignored, paper_section_misread"],
+  "explanation": "one sentence explaining the main audit finding"
+}
+
+Rules:
+- overgeneralization: true if answer removes dataset, population, or condition limits
+- false_certainty: true if answer says yes/no when source says maybe or uncertain
+- hallucination_risk: high if error_types is non-empty AND support_label is not supported
+Return only valid JSON. No explanation outside the JSON.

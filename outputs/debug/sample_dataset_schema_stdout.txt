@@ -1,0 +1,61 @@
+
+# SciFact
+
+- claims_train.jsonl rows: 809
+- corpus.jsonl rows: 5183
+[OK] wrote 5 rows -> /orange/ruogu.fang/qixuan/EvidenceLens/data/raw_sample/scifact/claims_train_sample5.jsonl
+[OK] wrote 5 rows -> /orange/ruogu.fang/qixuan/EvidenceLens/data/raw_sample/scifact/corpus_for_sample5.jsonl
+[OK] wrote 5 rows -> /orange/ruogu.fang/qixuan/EvidenceLens/data/processed/samples/scifact_normalized_sample5.jsonl
+
+SciFact claim schema:
+{
+  "id": "int",
+  "claim": "str",
+  "evidence": {},
+  "cited_doc_ids": [
+    "int"
+  ]
+}
+
+SciFact corpus schema:
+{
+  "doc_id": "int",
+  "title": "str",
+  "abstract": [
+    "str"
+  ],
+  "structured": "bool"
+}
+
+# PubMedQA
+
+- found JSON files: 2
+- selected file: /orange/ruogu.fang/qixuan/EvidenceLens/data/raw/pubmedqa/ori_pqal.json
+- sampled records: 5
+[OK] wrote 5 rows -> /orange/ruogu.fang/qixuan/EvidenceLens/data/raw_sample/pubmedqa/pubmedqa_sample5.jsonl
+[OK] wrote 5 rows -> /orange/ruogu.fang/qixuan/EvidenceLens/data/processed/samples/pubmedqa_normalized_sample5.jsonl
+
+PubMedQA schema:
+{
+  "QUESTION": "str",
+  "CONTEXTS": [
+    "str"
+  ],
+  "LABELS": [
+    "str"
+  ],
+  "MESHES": [
+    "str"
+  ],
+  "YEAR": "str",
+  "reasoning_required_pred": "str",
+  "reasoning_free_pred": "str",
+  "final_decision": "str",
+  "LONG_ANSWER": "str",
+  "_pubid": "str"
+}
+
+# QASPER
+
+- streaming load failed: RuntimeError('Dataset scripts are no longer supported, but found qasper.py')
+- trying non-streaming load for train split

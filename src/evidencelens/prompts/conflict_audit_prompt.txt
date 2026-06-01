@@ -1,0 +1,28 @@
+You are auditing an LLM for knowledge-conflict handling.
+Two documents provide conflicting evidence on the same question.
+
+DOCUMENT A — {title_a}:
+{sentences_a}
+
+DOCUMENT B — {title_b}:
+{sentences_b}
+
+QUESTION: {input_claim_or_question}
+
+Answer the question based on both documents. Then audit your own answer.
+
+Return JSON:
+{
+  "llm_answer": "answer based on both documents",
+  "conflict_detected": true or false,
+  "conflict_description": "description of the disagreement, or null",
+  "forced_consensus": true or false,
+  "winning_document": "A | B | neither | both",
+  "hallucination_risk": "low | medium | high",
+  "error_types": ["conflict_ignored", "condition_dropping", "overgeneralization"],
+  "explanation": "one sentence on how the conflict was handled"
+}
+
+forced_consensus is true if a clean yes/no answer was given
+without acknowledging the disagreement between documents.
+Return only valid JSON. No explanation outside the JSON.

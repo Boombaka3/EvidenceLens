@@ -1,0 +1,220 @@
+EvidenceLens/
+├── .git/
+│   ├── hooks/
+│   │   ├── applypatch-msg.sample  (0.00 MB)
+│   │   ├── commit-msg.sample  (0.00 MB)
+│   │   ├── fsmonitor-watchman.sample  (0.00 MB)
+│   │   ├── post-update.sample  (0.00 MB)
+│   │   ├── pre-applypatch.sample  (0.00 MB)
+│   │   ├── pre-commit.sample  (0.00 MB)
+│   │   ├── pre-merge-commit.sample  (0.00 MB)
+│   │   ├── pre-push.sample  (0.00 MB)
+│   │   ├── pre-rebase.sample  (0.00 MB)
+│   │   ├── pre-receive.sample  (0.00 MB)
+│   │   ├── prepare-commit-msg.sample  (0.00 MB)
+│   │   ├── push-to-checkout.sample  (0.00 MB)
+│   │   ├── sendemail-validate.sample  (0.00 MB)
+│   │   └── update.sample  (0.00 MB)
+│   ├── info/
+│   │   └── exclude  (0.00 MB)
+│   ├── logs/
+│   │   ├── refs/
+│   │   │   └── heads/
+│   │   │       └── main  (0.00 MB)
+│   │   └── HEAD  (0.00 MB)
+│   ├── objects/
+│   │   ├── 15/
+│   │   │   └── a51db1f8ff11055cfbcb2e1e193fa9e91d194a  (0.00 MB)
+│   │   ├── 97/
+│   │   │   └── 012366b8a346e9f639b795195fd1866c0c6d59  (0.00 MB)
+│   │   ├── 9a/
+│   │   │   └── 9d3513cde635fc83f526c9fd0af5a5a6729d72  (0.00 MB)
+│   │   ├── 9d/
+│   │   │   └── 1dcfdaf1a6857c5f83dc27019c7600e1ffaff8  (0.00 MB)
+│   │   ├── c5/
+│   │   │   └── 7ea4d9a1624b09bd536f7107568f57000d9f3e  (0.00 MB)
+│   │   ├── cb/
+│   │   │   └── 4618ccabec607fea00192e681cd712f4d48159  (0.00 MB)
+│   │   ├── cf/
+│   │   │   └── 5fd1722e2a645f2c8d65f0a2811b5af69e6d7b  (0.00 MB)
+│   │   ├── d1/
+│   │   │   └── 5dc738db58efac7739cb075141c42be4ab85fe  (0.00 MB)
+│   │   ├── d3/
+│   │   │   └── 071980d897e2c2796e1edb45f980ce1ad433f1  (0.00 MB)
+│   │   ├── e6/
+│   │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391  (0.00 MB)
+│   │   ├── e7/
+│   │   │   └── f5e60e96eba181e7c6e0762ee5f119e563fbff  (0.00 MB)
+│   │   ├── info/
+│   │   └── pack/
+│   ├── refs/
+│   │   ├── heads/
+│   │   │   └── main  (0.00 MB)
+│   │   └── tags/
+│   ├── COMMIT_EDITMSG  (0.00 MB)
+│   ├── config  (0.00 MB)
+│   ├── description  (0.00 MB)
+│   ├── HEAD  (0.00 MB)
+│   └── index  (0.00 MB)
+├── configs/
+├── data/
+│   ├── external/
+│   │   └── repos/
+│   │       ├── pubmedqa/
+│   │       │   ├── .git/
+│   │       │   │   ├── hooks/
+│   │       │   │   ├── info/
+│   │       │   │   ├── logs/
+│   │       │   │   ├── objects/
+│   │       │   │   ├── refs/
+│   │       │   │   ├── config  (0.00 MB)
+│   │       │   │   ├── description  (0.00 MB)
+│   │       │   │   ├── FETCH_HEAD  (0.00 MB)
+│   │       │   │   ├── HEAD  (0.00 MB)
+│   │       │   │   ├── index  (0.00 MB)
+│   │       │   │   ├── ORIG_HEAD  (0.00 MB)
+│   │       │   │   ├── packed-refs  (0.00 MB)
+│   │       │   │   └── shallow  (0.00 MB)
+│   │       │   ├── data/
+│   │       │   │   ├── ori_pqal.json  (2.47 MB)
+│   │       │   │   └── test_ground_truth.json  (0.01 MB)
+│   │       │   ├── preprocess/
+│   │       │   │   └── split_dataset.py  (0.00 MB)
+│   │       │   ├── evaluation.py  (0.00 MB)
+│   │       │   ├── get_human_performance.py  (0.00 MB)
+│   │       │   ├── LICENSE  (0.00 MB)
+│   │       │   └── README.md  (0.00 MB)
+│   │       └── scifact/
+│   │           ├── .git/
+│   │           │   ├── hooks/
+│   │           │   ├── info/
+│   │           │   ├── logs/
+│   │           │   ├── objects/
+│   │           │   ├── refs/
+│   │           │   ├── config  (0.00 MB)
+│   │           │   ├── description  (0.00 MB)
+│   │           │   ├── FETCH_HEAD  (0.00 MB)
+│   │           │   ├── HEAD  (0.00 MB)
+│   │           │   ├── index  (0.00 MB)
+│   │           │   ├── ORIG_HEAD  (0.00 MB)
+│   │           │   ├── packed-refs  (0.00 MB)
+│   │           │   └── shallow  (0.00 MB)
+│   │           ├── covid/
+│   │           │   └── claims.txt  (0.00 MB)
+│   │           ├── data/
+│   │           │   ├── cross_validation/
+│   │           │   ├── claims_dev.jsonl  (0.06 MB)
+│   │           │   ├── claims_test.jsonl  (0.03 MB)
+│   │           │   ├── claims_train.jsonl  (0.17 MB)
+│   │           │   └── corpus.jsonl  (7.92 MB)
+│   │           ├── doc/
+│   │           │   ├── claims-with-citances.md  (0.00 MB)
+│   │           │   ├── data.md  (0.00 MB)
+│   │           │   ├── evaluation.md  (0.01 MB)
+│   │           │   ├── model.md  (0.00 MB)
+│   │           │   └── training.md  (0.00 MB)
+│   │           ├── script/
+│   │           │   ├── download-data.sh  (0.00 MB)
+│   │           │   ├── download-model.sh  (0.00 MB)
+│   │           │   ├── label-prediction.sh  (0.00 MB)
+│   │           │   ├── pipeline.sh  (0.00 MB)
+│   │           │   ├── rationale-selection.sh  (0.00 MB)
+│   │           │   └── verify_covid.py  (0.01 MB)
+│   │           ├── verisci/
+│   │           │   ├── covid/
+│   │           │   ├── evaluate/
+│   │           │   ├── inference/
+│   │           │   └── training/
+│   │           ├── ._data  (0.00 MB)
+│   │           ├── .gitignore  (0.00 MB)
+│   │           ├── LICENSE.md  (0.00 MB)
+│   │           ├── README.md  (0.01 MB)
+│   │           └── requirements.txt  (0.00 MB)
+│   ├── interim/
+│   │   ├── manual_conflict_pairs/
+│   │   ├── pubmedqa/
+│   │   ├── qasper/
+│   │   └── scifact/
+│   ├── processed/
+│   │   ├── diagnostic_v1/
+│   │   └── samples/
+│   │       ├── pubmedqa_normalized_sample5.jsonl  (0.01 MB)
+│   │       └── scifact_normalized_sample5.jsonl  (0.01 MB)
+│   ├── raw/
+│   │   ├── manual_conflict_pairs/
+│   │   │   └── README.md  (0.00 MB)
+│   │   ├── pubmedqa/
+│   │   │   ├── ori_pqal.json  (2.47 MB)
+│   │   │   └── test_ground_truth.json  (0.01 MB)
+│   │   ├── qasper/
+│   │   └── scifact/
+│   │       ├── cross_validation/
+│   │       │   ├── fold_1/
+│   │       │   │   ├── claims_dev_1.jsonl  (0.05 MB)
+│   │       │   │   └── claims_train_1.jsonl  (0.18 MB)
+│   │       │   ├── fold_2/
+│   │       │   │   ├── claims_dev_2.jsonl  (0.05 MB)
+│   │       │   │   └── claims_train_2.jsonl  (0.18 MB)
+│   │       │   ├── fold_3/
+│   │       │   │   ├── claims_dev_3.jsonl  (0.05 MB)
+│   │       │   │   └── claims_train_3.jsonl  (0.18 MB)
+│   │       │   ├── fold_4/
+│   │       │   │   ├── claims_dev_4.jsonl  (0.05 MB)
+│   │       │   │   └── claims_train_4.jsonl  (0.18 MB)
+│   │       │   ├── fold_5/
+│   │       │   │   ├── claims_dev_5.jsonl  (0.05 MB)
+│   │       │   │   └── claims_train_5.jsonl  (0.18 MB)
+│   │       │   ├── ._fold_1  (0.00 MB)
+│   │       │   └── ._fold_4  (0.00 MB)
+│   │       ├── claims_dev.jsonl  (0.06 MB)
+│   │       ├── claims_test.jsonl  (0.03 MB)
+│   │       ├── claims_train.jsonl  (0.17 MB)
+│   │       └── corpus.jsonl  (7.92 MB)
+│   └── raw_sample/
+│       ├── pubmedqa/
+│       │   └── pubmedqa_sample5.jsonl  (0.01 MB)
+│       ├── qasper/
+│       └── scifact/
+│           ├── claims_train_sample5.jsonl  (0.00 MB)
+│           └── corpus_for_sample5.jsonl  (0.01 MB)
+├── docs/
+├── models/
+│   ├── baselines/
+│   ├── checkpoints/
+│   └── trained/
+├── notebooks/
+├── outputs/
+│   ├── cache/
+│   ├── debug/
+│   │   └── sample_dataset_schema_stdout.txt  (0.00 MB)
+│   ├── figures/
+│   ├── predictions/
+│   ├── reports/
+│   └── tables/
+├── runs/
+│   ├── logs/
+│   └── slurm/
+├── scripts/
+│   ├── download_qasper.py  (0.00 MB)
+│   └── sample_verify_datasets.py  (0.01 MB)
+├── src/
+│   └── evidencelens/
+│       ├── audit/
+│       │   └── __init__.py  (0.00 MB)
+│       ├── data/
+│       │   └── __init__.py  (0.00 MB)
+│       ├── eval/
+│       │   └── __init__.py  (0.00 MB)
+│       ├── models/
+│       │   └── __init__.py  (0.00 MB)
+│       ├── prompts/
+│       │   └── __init__.py  (0.00 MB)
+│       ├── viz/
+│       │   └── __init__.py  (0.00 MB)
+│       └── __init__.py  (0.00 MB)
+├── tests/
+├── .gitignore  (0.00 MB)
+├── README.md  (0.00 MB)
+├── requirements.txt  (0.00 MB)
+├── sample_download_verify.sh  (0.01 MB)
+└── setup_l4_b200_env.sh  (0.01 MB)

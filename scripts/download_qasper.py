@@ -1,15 +1,14 @@
 from datasets import load_dataset
 from pathlib import Path
-import json
+import jsonlines
 
-out_dir = Path("data/raw/qasper")
-out_dir.mkdir(parents=True, exist_ok=True)
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "data/raw/qasper/qasper_train.jsonl"
+OUT.parent.mkdir(parents=True, exist_ok=True)
 
-ds = load_dataset("allenai/qasper")
+ds = load_dataset("allenai/qasper", split="train", trust_remote_code=False)
+records = [dict(r) for r in ds.select(range(20))]
 
-for split, dataset in ds.items():
-    out_path = out_dir / f"{split}.jsonl"
-    with out_path.open("w", encoding="utf-8") as f:
-        for row in dataset:
-            f.write(json.dumps(row, ensure_ascii=False) + "\n")
-    print(f"[OK] wrote {len(dataset)} rows -> {out_path}")
+with jsonlines.open(OUT, "w") as writer:
+    writer.write_all(records)
+print(f"Wrote {len(records)} records to {OUT}")

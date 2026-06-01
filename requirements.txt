@@ -1,5 +1,6 @@
-datasets
-huggingface_hub
+datasets==3.6.0
+huggingface_hub<1.0
+pyarrow
 pandas
 numpy
 tqdm
@@ -7,3 +8,5 @@ jsonlines
 scikit-learn
 matplotlib
 pytest
+anthropic>=0.25.0
+python-dotenv>=1.0.0

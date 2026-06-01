@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 from itertools import islice
 
-ROOT = Path("/orange/ruogu.fang/qixuan/EvidenceLens")
+ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
 RAW_SAMPLE = ROOT / "data" / "raw_sample"
 PROCESSED = ROOT / "data" / "processed" / "samples"

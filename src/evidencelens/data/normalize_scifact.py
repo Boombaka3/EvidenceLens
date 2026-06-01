@@ -2,34 +2,14 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
-RAW = ROOT / "data" / "raw" / "scifact"
-OUT = ROOT / "data" / "processed" / "samples" / "scifact_normalized_sample5.jsonl"
+RAW  = ROOT / "data" / "raw" / "scifact"
+OUT  = ROOT / "data" / "processed" / "samples" / "scifact_normalized_sample5.jsonl"
 
 _ERROR_MAP = {
     "CONTRADICT": ["unsupported_claim", "contradiction_with_source"],
     "SUPPORT":    ["wrong_evidence", "missing_evidence"],
-    None:         ["missing_evidence", "false_certainty"],
+    "default":    ["missing_evidence", "false_certainty"],
 }
-
-
-def _label_from_evidence(evidence: dict) -> str:
-    for doc_evidence in evidence.values():
-        for entry in doc_evidence:
-            label = entry.get("label", "").upper()
-            if label == "CONTRADICT":
-                return "contradict"
-            if label == "SUPPORT":
-                return "support"
-    return "unknown"
-
-
-def _error_types(label: str) -> list:
-    key = label.upper() if label in ("contradict", "support") else None
-    if label == "contradict":
-        key = "CONTRADICT"
-    elif label == "support":
-        key = "SUPPORT"
-    return _ERROR_MAP.get(key, _ERROR_MAP[None])
 
 
 def _load_corpus() -> dict:
@@ -63,27 +43,25 @@ def main():
             break
 
         evidence = claim.get("evidence", {})
-        cited_ids = [str(x) for x in claim.get("cited_doc_ids", [])]
 
-        first_doc_id = None
-        for cid in cited_ids:
-            if cid in corpus:
-                first_doc_id = cid
-                break
-
-        if first_doc_id is None:
+        # Skip claims with no evidence annotation
+        if not evidence:
             continue
 
-        doc = corpus[first_doc_id]
-        label = _label_from_evidence(evidence)
+        doc_id     = list(evidence.keys())[0]
+        ev_entries = evidence[doc_id]
+        label_raw  = ev_entries[0]["label"]          # "SUPPORT" or "CONTRADICT"
+        sent_idxs  = ev_entries[0]["sentences"]       # list of int indices
 
-        evidence_sentences = []
-        for doc_evidence in evidence.values():
-            for entry in doc_evidence:
-                for sent in entry.get("sentences", []):
-                    abstract = doc.get("abstract", [])
-                    if isinstance(abstract, list) and sent < len(abstract):
-                        evidence_sentences.append(abstract[sent])
+        gold_label = "support" if label_raw == "SUPPORT" else "contradict"
+
+        doc      = corpus.get(doc_id, {})
+        abstract = doc.get("abstract", [])            # list of strings
+
+        ev_sents      = [abstract[i] for i in sent_idxs if i < len(abstract)]
+        gold_evidence = " ".join(ev_sents)
+
+        error_types = _ERROR_MAP.get(label_raw, _ERROR_MAP["default"])
 
         records.append({
             "id": f"scifact_{claim.get('id')}",
@@ -91,23 +69,30 @@ def main():
             "task_type": "claim_verification",
             "input_claim_or_question": claim.get("claim", ""),
             "document_a": {
-                "doc_id": first_doc_id,
+                "doc_id": doc_id,
                 "title": doc.get("title", ""),
-                "abstract": " ".join(doc.get("abstract", [])),
-                "sentences": doc.get("abstract", []),
+                "abstract": " ".join(abstract),
+                "sentences": abstract,
                 "metadata": {},
             },
             "document_b": None,
-            "gold_label": label,
-            "gold_evidence": " ".join(evidence_sentences),
-            "target_error_types": _error_types(label),
+            "gold_label": gold_label,
+            "gold_evidence": gold_evidence,
+            "target_error_types": error_types,
         })
+
+    if len(records) < 5:
+        print(f"WARNING: only {len(records)} valid records found (expected 5)")
 
     with OUT.open("w", encoding="utf-8") as f:
         for rec in records:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
-    print(f"Wrote {len(records)} records to {OUT}")
+    print(f"Records written: {len(records)}")
+    print(f"{'id':<20} {'gold_label':<12} claim (first 60 chars)")
+    print("-" * 70)
+    for r in records:
+        print(f"{r['id']:<20} {r['gold_label']:<12} {r['input_claim_or_question'][:60]}")
 
 
 if __name__ == "__main__":

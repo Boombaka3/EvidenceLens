@@ -20,12 +20,19 @@ model  = os.getenv("ANTHROPIC_MODEL", "claude-haiku-4-5")
 
 def build_message(record):
     doc = record["document_a"]
-    sentences = " ".join(doc.get("sentences", []))
+    title    = doc.get("title") or ""
+    abstract = doc.get("abstract") or ""
+    sentences = doc.get("sentences") or []
+    sentences_text = " ".join(str(s) for s in sentences if s)
+    # Use abstract if sentences is empty, sentences if abstract is empty
+    text = sentences_text if sentences_text else abstract
+
     return (prompt_template
-        .replace("{title}", doc.get("title", ""))
-        .replace("{abstract}", doc.get("abstract", ""))
-        .replace("{sentences}", sentences)
-        .replace("{input_claim_or_question}", record["input_claim_or_question"]))
+        .replace("{title}", title)
+        .replace("{abstract}", abstract)
+        .replace("{sentences}", text)
+        .replace("{input_claim_or_question}",
+                 str(record.get("input_claim_or_question") or "")))
 
 def strip_fences(text):
     return re.sub(r"```(?:json)?|```", "", text).strip()
